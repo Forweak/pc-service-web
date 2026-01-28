@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SXZBOOST | Checkout</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+<header class="hero hero-small">
+    <div class="container hero-inner">
+    <img class="logo" src="logo.png" alt="SXZBOOST logo">
+    <h1>Finalizar compra</h1>
+    <p class="lead">Revisá el servicio seleccionado y elegí un método de pago</p>
+    </div>
+</header>
+
+<main class="container checkout">
+
+    <!-- RESUMEN -->
+    <section class="checkout-summary">
+    <h2><span>Resumen</span></h2>
+
+    <div class="summary-card">
+    <p class="label">Servicio seleccionado</p>
+    <h3 id="productoNombre">—</h3>
+
+    <p class="label">Estado</p>
+    <p class="status">Pago manual / en desarrollo</p>
+
+    <small class="card-note">
+        El pago todavía no se procesa automáticamente.
+        Luego de elegir el método, serás guiado para completar la compra.
+    </small>
+    </div>
+    </section>
+
+    <!-- MÉTODOS DE PAGO -->
+    <section class="checkout-payments">
+    <h2><span>Métodos de pago</span></h2>
+
+    <!-- TARJETA -->
+    <div class="payment-card">
+    <h3>Tarjeta de crédito / débito</h3>
+    <p class="muted">Integración futura (MercadoPago / Stripe)</p>
+
+    <form class="payment-form">
+        <input type="text" placeholder="Número de tarjeta" disabled>
+        <div class="row">
+        <input type="text" placeholder="MM/AA" disabled>
+        <input type="text" placeholder="CVV" disabled>
+        </div>
+        <button class="btn btn-disabled" type="button">
+        Pago con tarjeta (próximamente)
+        </button>
+    </form>
+    </div>
+
+    <!-- PAYPAL -->
+    <div class="payment-card">
+    <h3>PayPal</h3>
+    <p class="muted">Redirección manual</p>
+
+    <a
+        href="https://wa.me/5491123981806"
+        target="_blank"
+        rel="noopener"
+        class="btn"
+    >
+        Continuar por WhatsApp
+    </a>
+    </div>
+
+    <!-- TRANSFERENCIA -->
+    <div class="payment-card">
+    <h3>Transferencia / Efectivo</h3>
+    <p class="muted">Coordinación directa</p>
+
+    <a
+        href="https://wa.me/5491123981806"
+        target="_blank"
+        rel="noopener"
+        class="btn btn-muted"
+    >
+        Coordinar pago
+    </a>
+    </div>
+
+    </section>
+
+    <div class="checkout-back">
+    <a href="index.html" class="btn btn-muted">← Volver a servicios</a>
+    </div>
+
+</main>
+
+<footer>
+    <div class="container">
+    © 2026 SXZBOOST · Buenos Aires
+    </div>
+</footer>
+
+<!-- JS inline SOLO para leer el producto -->
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const producto = params.get("producto");
+
+    const nombreProducto = document.getElementById("productoNombre");
+
+if (producto) {
+    nombreProducto.textContent = producto.replaceAll("-", " ");
+    } else {
+    nombreProducto.textContent = "Servicio no especificado";
+    }
+</script>
+
+</body>
+</html>
