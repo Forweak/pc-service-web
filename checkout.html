@@ -1,0 +1,19 @@
+<script>
+async function testMP() {
+    console.log('ANTES DEL FETCH');
+
+    const res = await fetch('/create-preference', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+        title: 'Test MP',
+        price: 1000
+    })
+    });
+
+    console.log('FETCH RESPONDIO');
+
+    const data = await res.json();
+    console.log('DATA:', data);
+}
+</script>
